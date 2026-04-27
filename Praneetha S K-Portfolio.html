@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praneetha S.K | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #0a0a0a;
+            --border: #1a1a1a;
+            --accent-hover: #4a1a1a; 
+            --text: #e0e0e0;
+            --accent-red: #ff4d4d;
+            --dim: #999999;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Instrument Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- CURSOR --- */
+        #cursor-main { position: fixed; width: 6px; height: 6px; background: white; border-radius: 50%; pointer-events: none; z-index: 10001; transform: translate(-50%, -50%); }
+        #cursor-orbit { position: fixed; width: 35px; height: 35px; border: 1px solid var(--accent-red); border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); transition: width 0.4s ease, height 0.4s ease, border-color 0.3s; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px; 
+            position: relative;
+            z-index: 2;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 45px; 
+            border-radius: 2px;
+            transition: border-color 0.5s ease;
+        }
+
+        .box:hover { border-color: var(--accent-hover); }
+
+        /* Grid Layout */
+        .header-box { grid-column: span 12; border: none; background: transparent; padding: 120px 0 100px 0; }
+        .obj-box { grid-column: span 8; }
+        .skills-box { grid-column: span 4; }
+        .exp-box { grid-column: span 12; } 
+        .edu-box { grid-column: span 6; }
+        .tech-box { grid-column: span 6; } 
+        .proj-box { grid-column: span 7; }
+        .cert-box { grid-column: span 5; background: #0c0c0c; }
+
+        /* Typography */
+        .name { 
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem); 
+            font-weight: 900; 
+            letter-spacing: 0.4rem; 
+            line-height: 0.9;
+            color: #fff;
+        }
+
+        .name span { display: inline-block; opacity: 0; transform: scale(0.5); transition: all 1s cubic-bezier(0.2, 1, 0.3, 1); margin-right: 0.2rem; }
+        .name span.appear { opacity: 1; transform: scale(1); animation: zoomInOut 3.5s ease-in-out infinite alternate; }
+
+        @keyframes zoomInOut { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+
+        h2 { font-family: 'Instrument Sans', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 6px; color: var(--accent-red); margin-bottom: 30px; font-weight: 600; }
+        h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+        .dim-text { color: var(--dim); font-size: 1rem; font-style: italic; }
+
+        .contact-links { display: flex; gap: 40px; margin-top: 40px; font-size: 0.9rem; }
+        .contact-links a { color: #fff; text-decoration: none; border-bottom: 1px solid var(--accent-red); padding-bottom: 4px; }
+
+        .recognition-item { font-size: 1.2rem; color: #fff; margin-bottom: 20px; padding: 15px 0; border-bottom: 1px solid #1a1a1a; display: block; font-family: 'Playfair Display', serif; }
+
+        .quote-box { grid-column: span 12; padding: 180px 0; text-align: center; border: none; background: transparent; }
+        .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(2.2rem, 5vw, 4rem); color: #fff; line-height: 1.2; }
+
+        .lang-box { grid-column: span 12; text-align: center; padding: 100px; background: #000; border-top: 1px solid var(--border); margin-top: 50px; }
+        .lang-text { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 15px; color: #fff; text-transform: uppercase; }
+
+        @media (max-width: 900px) { .bento-grid { display: flex; flex-direction: column; } #cursor-main, #cursor-orbit { display: none; } * { cursor: auto; } }
+    </style>
+</head>
+<body>
+
+    <div id="cursor-main"></div>
+    <div id="cursor-orbit"></div>
+
+    <div class="container">
+        <div class="bento-grid">
+            
+            <div class="box header-box">
+                <h1 class="name" id="name-reveal">PRANEETHA S.K</h1>
+                <div class="contact-links">
+                    <span>praneethask05@gmail.com</span>
+                    <span>+91 7538857555</span>
+                    <a href="https://www.linkedin.com/in/praneetha-s-k-9846bb2a4" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="box obj-box">
+                <h2>The Vision</h2>
+                <p style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: #fff; line-height: 1.4;">
+                    Aspiring Full-Stack Developer and AI/ML Enthusiast. Bridging the gap between intelligent data-driven logic and elegant digital interfaces.
+                </p>
+            </div>
+
+            <div class="box skills-box">
+                <h2>Core Stack</h2>
+                <p style="color: #fff; font-weight: 600; font-size: 1.2rem; line-height: 2;">
+                    Java<br>React.js<br>Python<br>SQL<br>PowerBI<br>HTML5/CSS3<br>Adobe Photoshop<br>Adobe Express
+                </p>
+            </div>
+
+            <div class="box quote-box">
+                <p class="quote-text">"It’s beautiful when a career and a passion come together"</p>
+            </div>
+
+            <div class="box exp-box">
+                <h2>Experience & Internships</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div>
+                        <h3>Petrichor Techlutions</h3>
+                        <p class="dim-text">Web Developer Intern — Chennai</p>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">Focusing on responsive architecture and scalable web solutions using modern frameworks.</p>
+                    </div>
+                    <div>
+                        <h3>Reccsar Private Limited</h3>
+                        <p class="dim-text">UI/UX & Frontend Intern — Mumbai</p>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">Crafting intuitive user journeys and translating complex designs into functional interfaces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box edu-box">
+                <h2>Education</h2>
+                <h3>KPR Institute</h3>
+                <p class="dim-text">B.E. Computer Science & Engineering</p>
+            </div>
+
+            <div class="box tech-box">
+                <h2>Ecosystem</h2>
+                <p style="color: #fff; font-size: 1.1rem; line-height: 1.8;">
+                    Git • VS Code • Jupyter • Tableau • Figma • Postman
+                </p>
+            </div>
+
+            <div class="box proj-box">
+                <h2>Featured Projects</h2>
+                <div style="margin-bottom: 30px;">
+                    <h3>Diabetes Prediction ML</h3>
+                    <p class="dim-text">Harnessing Python and Scikit-Learn to provide predictive health analytics with high accuracy.</p>
+                </div>
+                <div>
+                    <h3>Food Experience Design</h3>
+                    <p class="dim-text">High-conversion web interfaces focused on visual storytelling and seamless ordering.</p>
+                </div>
+            </div>
+
+            <div class="box cert-box">
+                <h2>Honors</h2>
+                <div class="recognition-list">
+                    <span class="recognition-item">Sensathon’24 Hackathon Winner</span>
+                    <span class="recognition-item">EF SET C1 Advanced</span>
+                    <span class="recognition-item">NPTEL: Cyber Security</span>
+                </div>
+            </div>
+
+            <div class="box quote-box" style="padding: 220px 0;">
+                <p class="quote-text" style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); opacity: 0.7;">
+                    "There is a profound joy in designing digital worlds where every pixel feels intentional."
+                </p>
+            </div>
+
+            <div class="box lang-box">
+                <p class="lang-text">English • Tamil • Telugu</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const main = document.getElementById('cursor-main');
+        const orbit = document.getElementById('cursor-orbit');
+
+        document.addEventListener('mousemove', (e) => {
+            const { clientX: x, clientY: y } = e;
+            main.style.left = x + 'px';
+            main.style.top = y + 'px';
+            orbit.animate({ left: x + 'px', top: y + 'px' }, { duration: 800, fill: "forwards" });
+        });
+
+        document.querySelectorAll('.box, a').forEach(el => {
+            el.addEventListener('mouseenter', () => { orbit.style.width = '70px'; orbit.style.height = '70px'; orbit.style.borderColor = 'white'; });
+            el.addEventListener('mouseleave', () => { orbit.style.width = '35px'; orbit.style.height = '35px'; orbit.style.borderColor = 'var(--accent-red)'; });
+        });
+
+        const nameElement = document.getElementById('name-reveal');
+        const nameText = nameElement.innerText;
+        nameElement.innerText = '';
+        
+        nameText.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.innerText = char === ' ' ? '\u00A0' : char;
+            span.style.transitionDelay = `${i * 0.05}s`;
+            span.style.animationDelay = `${i * 0.2}s`; 
+            nameElement.appendChild(span);
+            setTimeout(() => span.classList.add('appear'), 100);
+        });
+    </script>
+</body>
+</html>
